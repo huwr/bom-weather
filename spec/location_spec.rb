@@ -2,32 +2,32 @@ require File.join(File.dirname(__FILE__), 'spec_helper')
 
 describe BOMWeather::Location do
   it "should respond to location_id" do
-    BOMWeather::Location.public_instance_methods.should(include('location_id'))
+    expect(BOMWeather::Location.public_instance_methods).to include(:location_id)
   end
-  
+
   it "should respond to name" do
-    BOMWeather::Location.public_instance_methods.should(include('name'))
+    expect(BOMWeather::Location.public_instance_methods).to include(:name)
   end
-  
+
   it "should respond to state" do
-    BOMWeather::Location.public_instance_methods.should(include('state'))
+    expect(BOMWeather::Location.public_instance_methods).to include(:state)
   end
-  
+
   it "should respond to find" do
-    BOMWeather::Location.find(:location => "Arm").should(be_an_instance_of(Array))
-    BOMWeather::Location.find(:location => "Arm").first.should(be_an_instance_of(BOMWeather::Location))
+    expect(BOMWeather::Location.find(:location => :Melbourne)).to be_an_instance_of(Array)
+    expect(BOMWeather::Location.find(:location => :Melbourne).first).to be_an_instance_of(BOMWeather::Location)
   end
-  
+
   it "should find case-insensitive matches" do
-    BOMWeather::Location.find(:state => "Vic").should(be_an_instance_of(Array))
+    expect(BOMWeather::Location.find(:state => :BrisBane)).to be_an_instance_of(Array)
   end
-  
+
   it "should have a current forecast" do
-    BOMWeather::Location.find(:location => "Arm").first.today.should(be_an_instance_of(BOMWeather::Forecast))
+    expect(BOMWeather::Location.find(:location => :Melbourne).first.today).to be_an_instance_of(BOMWeather::Forecast)
   end
-  
+
   it "should have a forecast outlook" do
-    BOMWeather::Location.find(:location => "Arm").first.outlook.should(be_an_instance_of(Array))
-    BOMWeather::Location.find(:location => "Arm").first.outlook.first.should(be_an_instance_of(BOMWeather::Forecast))
+    expect(BOMWeather::Location.find(:location => :Melbourne).first.outlook).to be_an_instance_of(Array)
+    expect(BOMWeather::Location.find(:location => :Melbourne).first.outlook.first).to be_an_instance_of(BOMWeather::Forecast)
   end
 end
