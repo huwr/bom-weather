@@ -8,6 +8,6 @@ Gem::Specification.new do |s|
   s.description = "Weather from the Australian Bureau of Meteorology"
   s.has_rdoc = false
   s.authors = ["Ben Schwarz"]
-  s.files = ["Rakefile", "README", "lib/bom-weather.rb", "lib/bom-weather/base.rb", "lib/bom-weather/forecast.rb", "lib/bom-weather/location.rb", "lib/bom-weather/parser.rb", "lib/bom-weather/query.rb"]
+  s.files = ["Rakefile", "README.textile", "lib/bom-weather.rb", "lib/bom-weather/base.rb", "lib/bom-weather/forecast.rb", "lib/bom-weather/location.rb", "lib/bom-weather/parser.rb", "lib/bom-weather/query.rb"]
   s.add_dependency("validatable", [">= 1.6.7"])
 end
